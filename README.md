@@ -14,12 +14,12 @@
   ## Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/restaurant-reservation-system.git
+   git clone https://github.com/ParmisMorshedi/Restaurant.git
    ```
 
  2.  **Navigate to the project directory**:
    ```bash
-    cd restaurant-reservation-system 
+    cd Restaurant 
    ```
  3.  **Restore dependencies:**:
    ```bash
@@ -29,6 +29,14 @@
    ```bash
     dotnet run
    ```
+## NuGet Packages
+
+The project uses the following NuGet packages:
+
+* **Microsoft.EntityFrameworkCore**: ORM for database interactions.
+* **Microsoft.EntityFrameworkCore.SqlServer**: SQL Server provider for Entity Framework Core.
+* **Microsoft.EntityFrameworkCore.Tools**: Tools for Entity Framework Core, used for database migrations and scaffolding.
+* **Microsoft.EntityFrameworkCore.Design**: Design-time tools for Entity Framework Core, used for migrations and database updates. 
 
 
 
