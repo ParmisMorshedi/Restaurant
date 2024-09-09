@@ -49,8 +49,6 @@ namespace Restaurant.Controllers
             }
         }
 
-
-
         [HttpPost]
         public async Task<IActionResult> AddTable([FromBody] TableDTO tableDTO)
         {
@@ -108,7 +106,7 @@ namespace Restaurant.Controllers
             }
         }
         // GET: api/Table/available
-        [HttpGet("available")]
+        [HttpGet("available-tables")]
         public async Task<IActionResult> GetAvailableTables([FromQuery] DateTime date, [FromQuery] TimeOnly time)
         {
             try

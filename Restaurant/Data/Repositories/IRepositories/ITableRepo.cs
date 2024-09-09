@@ -1,4 +1,5 @@
 ﻿using Restaurant.Models;
+using Restaurant.Models.DTOs;
 
 namespace Restaurant.Data.Repositories.IRepositories
 {
@@ -9,6 +10,8 @@ namespace Restaurant.Data.Repositories.IRepositories
 
         // Retrieves a table by its ID asynchronously.
         Task<Table> GetTableByIdsAsync(int tableId);
+
+        Task<IEnumerable<Table>> GetAvailableTablesAsync(DateTime date, TimeOnly time);
 
         Task AddTablesAsync(Table table);
         Task UpdateTablesAsync(Table table);

@@ -4,14 +4,11 @@ namespace Restaurant.Models
 {
     public class Menu
     {
-        [Key]
+    
         public int Id { get; set; }
-
-        [Required]
         public string DishName { get; set; }
-        [Required]
         public decimal Price {  get; set; } 
-        [Required]
+        public string Description {  get; set; }
         public bool IsAvailable { get; set; }
 
      

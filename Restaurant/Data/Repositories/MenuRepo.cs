@@ -60,10 +60,24 @@ namespace Restaurant.Data.Repositories
         }
 
         // Updates an existing menu item
-        public async Task UpdateMenusAsync(Menu menu)
+        public async Task<bool> UpdateMenusAsync(Menu menu)
         {
-            _context.Menues.Update(menu);
+            var existingMenu = await _context.Menues.FindAsync(menu.Id);
+            if (existingMenu == null)
+            {
+                return false;
+            }
+
+            // Update properties
+            existingMenu.DishName = menu.DishName;
+            existingMenu.Price = menu.Price;
+            existingMenu.Description = menu.Description;
+            existingMenu.IsAvailable = menu.IsAvailable; // Make sure this is updated
+
+            // Save changes
             await _context.SaveChangesAsync();
+            return true;
+
         }
     }
 }

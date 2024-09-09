@@ -13,6 +13,8 @@ namespace Restaurant.Data.Repositories
         {
             _context = context;
         }
+
+
         // Adds a new reservation to the database
         public async Task AddReservationsAsync(Reservation reservation)
         {
@@ -33,7 +35,8 @@ namespace Restaurant.Data.Repositories
                 throw;
             }
 
-        }
+        }   
+
 
         // Deletes a reservation by its ID
         public async Task<bool> DeleteReservationsAsync(int reservationId)
@@ -49,6 +52,8 @@ namespace Restaurant.Data.Repositories
             return await _context.SaveChangesAsync() > 0;
         }
 
+
+
         // Retrieves all reservations from the database
         public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
         {
@@ -56,11 +61,15 @@ namespace Restaurant.Data.Repositories
 
         }
 
+
+
         // Retrieves a specific reservation by its ID
         public async Task<Reservation> GetReservationAsync(int id)
         {
             return await _context.Reservations.FindAsync(id);
         }
+
+
 
         // Updates an existing reservation
         public async Task UpdateReservationsAsync(Reservation reservation)
@@ -68,6 +77,8 @@ namespace Restaurant.Data.Repositories
             _context.Reservations.Update(reservation);
             await _context.SaveChangesAsync();  
         }
+
+
 
         // Retrieves reservations based on the date and time
         public async Task<IEnumerable<Reservation>> GetReservationByDatesAsync(DateTime date,TimeOnly time)
@@ -78,13 +89,18 @@ namespace Restaurant.Data.Repositories
                                  .ToListAsync();
         }
 
-        // Checks if a reservation exists based on the date and time
 
+
+        // Checks if a reservation exists based on the date and time
         public async Task<bool> CheckReservationExistsAsync(DateTime date, TimeOnly time)
         {
             // Determines if any reservations exist with the specified date and time
             return await _context.Reservations
                 .AnyAsync(r => r.Date.Date == date.Date && r.Time == time);
         }
+
+     
+        
+
     }
 }

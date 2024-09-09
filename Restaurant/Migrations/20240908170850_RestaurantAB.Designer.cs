@@ -12,8 +12,8 @@ using Restaurant.Data;
 namespace Restaurant.Migrations
 {
     [DbContext(typeof(RestaurantContext))]
-    [Migration("20240827173825_iniit")]
-    partial class iniit
+    [Migration("20240908170850_RestaurantAB")]
+    partial class RestaurantAB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,8 +39,7 @@ namespace Restaurant.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -58,6 +57,10 @@ namespace Restaurant.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DishName")
                         .IsRequired()
@@ -94,7 +97,7 @@ namespace Restaurant.Migrations
                     b.Property<int>("TableId")
                         .HasColumnType("int");
 
-                    b.Property<TimeOnly>("Time")
+                    b.Property<TimeSpan>("Time")
                         .HasColumnType("time");
 
                     b.HasKey("Id");

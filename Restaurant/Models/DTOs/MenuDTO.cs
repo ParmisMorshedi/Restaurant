@@ -10,6 +10,7 @@ namespace Restaurant.Models.DTOs
         public string DishName { get; set; }
         [Required]
         public decimal Price { get; set; }
+        public string Description { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
     }

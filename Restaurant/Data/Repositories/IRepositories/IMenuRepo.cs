@@ -13,6 +13,6 @@ namespace Restaurant.Data.Repositories.IRepositories
         Task<Menu> GetMenuByIdsAsync(int menuId);
         Task AddMenusAsync(Menu menu);
         Task<bool> DeleteMenusAsync(int menuId);
-        Task UpdateMenusAsync(Menu menu);
+        Task <bool>UpdateMenusAsync(Menu menu);
     }
 }

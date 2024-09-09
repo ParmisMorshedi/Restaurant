@@ -8,11 +8,12 @@ namespace Restaurant.Data.Repositories
     {
 
         private readonly RestaurantContext _context;
-
+      
         // Constructor to initialize the context
         public TableRepo(RestaurantContext context) 
         {
             _context = context;
+           
         }
 
         // Adds a new table to the database
@@ -60,6 +61,26 @@ namespace Restaurant.Data.Repositories
                 throw new InvalidOperationException("An error occurred while retrieving all tables.", ex);
             }
         }
+
+        public async Task<IEnumerable<Table>> GetAvailableTablesAsync(DateTime date, TimeOnly time)
+        {
+
+
+            var bookedTables = await _context.Reservations
+          .Where(r => r.Date == date.Date && r.Time == time)
+          .Select(r => r.TableId)
+          .ToListAsync();
+
+           
+            var availableTables = await _context.Tables
+                .Where(t => !bookedTables.Contains(t.Id))
+                .ToListAsync();
+
+            return availableTables;
+
+        }
+
+    
 
         // Retrieves a specific table by its ID
         public async Task<Table> GetTableByIdsAsync(int id)

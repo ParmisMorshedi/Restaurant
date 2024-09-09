@@ -8,11 +8,14 @@ namespace Restaurant.Data.Repositories.IRepositories
         // Retrieves all reservations asynchronously.
         Task<IEnumerable<Reservation>> GetAllReservationsAsync();
 
+
         // Retrieves a reservation by its ID asynchronously.
         Task<Reservation> GetReservationAsync(int id);
 
+
         // Retrieves reservations by a specific date and time asynchronously.
         Task<IEnumerable<Reservation>> GetReservationByDatesAsync(DateTime date, TimeOnly time);
+
 
         // Checks if a reservation exists for a specific date and time asynchronously.
         Task<bool> CheckReservationExistsAsync(DateTime date, TimeOnly time);

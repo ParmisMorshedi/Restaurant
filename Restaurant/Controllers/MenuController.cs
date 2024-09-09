@@ -57,6 +57,10 @@ namespace Restaurant.Controllers
         [HttpPost]
         public async Task<ActionResult<MenuDTO>> AddMenu(MenuDTO menuDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 // Add the new menu item

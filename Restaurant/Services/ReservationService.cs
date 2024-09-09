@@ -5,6 +5,8 @@ using Restaurant.Data.Repositories.IRepositories;
 using Restaurant.Models;
 using Restaurant.Data.Repositories;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Restaurant.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Restaurant.Services
 {
@@ -135,6 +137,9 @@ namespace Restaurant.Services
                 throw;
             }
         }
+       
+
+        
 
         // Update an existing reservation based on DTO
         public async Task UpdateReservationsAsync(ReservationDTO reservationDTO)
@@ -217,5 +222,7 @@ namespace Restaurant.Services
                 throw;
             }
         }
+
+   
     }
 }

@@ -28,7 +28,9 @@ namespace Restaurant.Services
                 {
                     MenuId = m.Id,
                     DishName = m.DishName,
-                    Price = m.Price
+                    Price = m.Price,
+                    Description = m.Description,
+
                 });
             }
             catch (Exception ex)
@@ -50,7 +52,8 @@ namespace Restaurant.Services
                 {
                     MenuId = menu.Id,
                     DishName = menu.DishName,
-                    Price = menu.Price
+                    Price = menu.Price,
+                    Description = menu.Description
                 };
             }
             catch (Exception ex)
@@ -73,7 +76,8 @@ namespace Restaurant.Services
                 var menu = new Menu
                 {
                     DishName = menuDTO.DishName,
-                    Price = menuDTO.Price
+                    Price = menuDTO.Price,
+                    Description = menuDTO.Description
                 };
 
                 await _menuRepo.AddMenusAsync(menu);
@@ -102,6 +106,8 @@ namespace Restaurant.Services
                 // Update the Menu entity with new values from DTO
                 menu.DishName = menuDTO.DishName;
                 menu.Price = menuDTO.Price;
+                menu.Description = menuDTO.Description;
+               
 
                 await _menuRepo.UpdateMenusAsync(menu);
                 return true;

@@ -7,7 +7,7 @@ namespace Restaurant.Models.DTOs
         public int TableId { get; set; }
 
         [Required]
-        [Range(1, 15)]
+        [Range(1, 15)]// Validates that the value of Number is between 1 and 15, inclusive.
         public int Number { get; set; }
 
         [Required]
