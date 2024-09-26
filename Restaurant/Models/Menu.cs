@@ -11,6 +11,6 @@ namespace Restaurant.Models
         public string Description {  get; set; }
         public bool IsAvailable { get; set; }
 
-     
+
     }
 }

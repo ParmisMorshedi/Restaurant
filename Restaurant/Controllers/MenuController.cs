@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Models.DTOs;
 using Restaurant.Services.IServices;
@@ -18,6 +19,7 @@ namespace Restaurant.Controllers
 
         // GET: api/Menu
         [HttpGet]
+      
         public async Task<ActionResult<IEnumerable<MenuDTO>>> GetAllMenus()
         {
             try
@@ -53,8 +55,8 @@ namespace Restaurant.Controllers
             }
         }
 
-        // POST: api/Menu
-        [HttpPost]
+        // POST: api/Menu      
+        [HttpPost]    
         public async Task<ActionResult<MenuDTO>> AddMenu(MenuDTO menuDTO)
         {
             if (!ModelState.IsValid)
@@ -75,7 +77,7 @@ namespace Restaurant.Controllers
             }
         }
 
-        // PUT: api/Menu/{id}
+        // PUT: api/Menu/{id}        
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMenu(int id, MenuDTO menuDTO)
         {
@@ -101,7 +103,7 @@ namespace Restaurant.Controllers
             }
         }
 
-        // DELETE: api/Menu/{id}
+        // DELETE: api/Menu/{id}       
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMenu(int id)
         {
