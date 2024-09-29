@@ -72,7 +72,7 @@ namespace Restaurant.Data.Repositories
             existingMenu.DishName = menu.DishName;
             existingMenu.Price = menu.Price;
             existingMenu.Description = menu.Description;
-            existingMenu.IsAvailable = menu.IsAvailable; // Make sure this is updated
+            existingMenu.IsAvailable = menu.IsAvailable;
 
             // Save changes
             await _context.SaveChangesAsync();

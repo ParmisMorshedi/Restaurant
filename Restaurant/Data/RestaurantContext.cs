@@ -13,6 +13,7 @@ namespace Restaurant.Data
         public DbSet<Table> Tables { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Menu> Menues { get; set; }
+        public DbSet<Auth> Auths { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
